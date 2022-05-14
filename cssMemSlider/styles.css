@@ -1,3 +1,99 @@
+* {
+    box-sizing: border-box;
+  }
+
+html {
+    font-size: 14px;
+}
+
+body {
+    background-color: rgba(6, 6, 32, 0.925);
+}
+
 h1 {
     color: red;
 }
+
+.wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+}
+
+.meme {
+    opacity: 1;
+    transition: 2s;
+    width: 100%;
+    border-radius: 25px;
+}
+
+.sign-and-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sign {
+    margin: 0;
+    width: 40%;
+    font-size: 2em;
+    color: white;
+    opacity: 1;
+    transition: 2s;
+}
+
+.changed {
+    opacity: 0;
+    transition: 2s;
+}
+
+.nav {
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 1em;
+}
+
+.nav-item {
+    padding: 1em;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.nav-item:hover {
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.nav-item:hover .point {
+    transition: 0.5s;
+    border: .3em solid white;
+    background-color: white;
+}
+
+.nav-item:hover .point.active {
+    transition: 0.5s;
+    border: .3em solid white;
+    background-color: rgba(6, 6, 32, 0.925);
+}
+
+.point {
+    height: 2em;
+    width: 2em;
+    padding: 1em;
+    background-color: rgb(28, 28, 194);
+    border-radius: 50%;
+    border: .3em solid rgb(28, 28, 194); 
+}
+
+.active {
+    transition: 0.5s;
+    background-color: rgba(6, 6, 32, 0.925);
+}
+
