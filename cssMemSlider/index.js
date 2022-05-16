@@ -9,8 +9,12 @@ buttons.forEach((item, index) => {
     item.addEventListener("click", change);
 
     function change() {
-        points.forEach(el => {el.classList.remove("active")});
+        points.forEach(el => {
+            el.classList.remove("active");
+            el.setAttribute("disabled", "disabled");
+        });
         points[index].classList.add("active");
+        
         img.classList.add("changed");
         text.classList.add("changed");
         setTimeout(() => {
@@ -18,6 +22,13 @@ buttons.forEach((item, index) => {
             text.innerText = phrases[index];
             img.classList.remove("changed");
             text.classList.remove("changed");
+            points.forEach((elem, ind) => {
+                if(elem !== points[index]) {
+                    elem.removeAttribute("disabled");
+                }
+                
+            });
           }, 2500);
     }
+
 });

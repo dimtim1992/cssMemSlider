@@ -88,6 +88,10 @@ body {
     border: .3em solid rgb(28, 28, 194); 
 }
 
+.point:hover {
+    cursor: pointer;
+}
+
 .active {
     transition: 0.5s;
     background-color: rgba(6, 6, 32, 0.925);
