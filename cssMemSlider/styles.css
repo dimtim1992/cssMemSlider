@@ -3,10 +3,11 @@
   }
 
 html {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 body {
+    margin: 0;
     background-color: rgba(6, 6, 32, 0.925);
 }
 
@@ -16,122 +17,183 @@ body {
     padding: 40px;
 
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2em;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    row-gap: 2rem;
+}
+
+
+.image-wrapper {
+    order: -2;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.sign-wrapper {
+    order: -1;
+    overflow: hidden;
+    width: 25%;
+    margin-right: auto;
+}
+
+.image-slider {
+    width: 400%;
+    display: flex;
+}
+
+.sign-slider {
+    width: 400%;
+    display: flex;
 }
 
 .meme {
-    opacity: 1;
-    transition: 2s;
-    width: 100%;
-    border-radius: 25px;
-}
-
-.sign-and-nav {
-    display: flex;
-    justify-content: space-between;
     width: 100%;
 }
 
 .sign {
-    margin: 0;
-    width: 40%;
-    font-size: 2em;
+    width: 100%;
+    font-size: 1.5rem;
     color: white;
-    opacity: 1;
-    transition: 2s;
-}
-
-.changed {
-    opacity: 0;
-    transition: 2s;
-}
-
-.nav {
     margin: 0;
-    list-style-type: none;
-    display: flex;
-    gap: 1em;
-}
-
-.nav-item {
-    padding: 1em;
-    background-color: transparent;
-    border-radius: 50%;
-}
-
-.nav-item:hover {
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.nav-item:hover .point {
-    transition: 0.5s;
-    border: .3em solid white;
-    background-color: white;
-}
-
-.nav-item:hover .point.active {
-    transition: 0.5s;
-    border: .3em solid white;
-    background-color: rgba(6, 6, 32, 0.925);
 }
 
 .point {
-    height: 2em;
-    width: 2em;
-    padding: 1em;
-    background-color: rgb(28, 28, 194);
-    border-radius: 50%;
-    border: .3em solid rgb(28, 28, 194); 
+    margin: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    opacity: 0;
 }
 
 .point:hover {
     cursor: pointer;
+    
 }
 
-.active {
-    transition: 0.5s;
-    background-color: rgba(6, 6, 32, 0.925);
+.style-point {
+    position: relative;
+    z-index: -1;
+    top: 0.5rem;
+    left: -2rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid rgb(52, 125, 235);
+    background-color: rgb(52, 125, 235);
+    border-radius: 50%;
 }
 
-@media screen and (max-width: 767px) {
+.point:hover + .style-point {
+    border-color:  white;
+    background-color:  white;  
+}
+
+.point:checked + .style-point {   
+    background-color:  rgba(6, 6, 32, 0.925);   
+    border-color:  rgb(52, 125, 235);
+}
+
+.point[checked]:hover + .style-point {     
+    border-color:  white;
+}
+
+
+
+.point-1:checked ~ .image-wrapper .image-slider {
+    transition: 2s;
+    transform: translateX(0rem);
+}
+
+.point-1:checked ~ .sign-wrapper .sign-slider {
+    transition: 2s;
+    transform: translateX(0rem);
+}
+
+.point-1:checked ~ .sign-wrapper .sign-slider .sign-1 {
+    opacity: 1;
+    transition: 1s;
+}
+
+.point-1:checked ~ .sign-wrapper .sign-slider .sign-2, .point-1:checked ~ .sign-wrapper .sign-slider .sign-3, .point-1:checked ~ .sign-wrapper .sign-slider .sign-4{
+    opacity: 0;
+    transition: 1s;
+}
+
+.point-2:checked ~ .image-wrapper .image-slider {
+    transition: 2s;
+    transform: translateX(-100%);
+}
+
+.point-2:checked ~ .sign-wrapper .sign-slider {
+    transition: 2s;
+    transform: translateX(-25%);
+}
+
+.point-2:checked ~ .sign-wrapper .sign-slider .sign-2 {
+    opacity: 1;
+    transition: 1s;
+}
+
+.point-2:checked ~ .sign-wrapper .sign-slider .sign-1, .point-2:checked ~ .sign-wrapper .sign-slider .sign-3, .point-2:checked ~ .sign-wrapper .sign-slider .sign-4{
+    opacity: 0;
+    transition: 1s;
+}
+
+.point-3:checked ~ .image-wrapper .image-slider {
+    transition: 2s;
+    transform: translateX(-200%);
+}
+
+.point-3:checked ~ .sign-wrapper .sign-slider {
+    transition: 2s;
+    transform: translateX(-50%);
+}
+
+.point-3:checked ~ .sign-wrapper .sign-slider .sign-3 {
+    opacity: 1;
+    transition: 1s;
+}
+
+.point-3:checked ~ .sign-wrapper .sign-slider .sign-1, .point-3:checked ~ .sign-wrapper .sign-slider .sign-2, .point-3:checked ~ .sign-wrapper .sign-slider .sign-4{
+    opacity: 0;
+    transition: 1s;
+}
+
+.point-4:checked ~ .image-wrapper .image-slider {
+    transition: 2s;
+    transform: translateX(-300%);
+}
+
+.point-4:checked ~ .sign-wrapper .sign-slider {
+    transition: 2s;
+    transform: translateX(-75%);
+}
+
+.point-4:checked ~ .sign-wrapper .sign-slider .sign-4 {
+    opacity: 1;
+    transition: 1s;
+}
+
+.point-4:checked ~ .sign-wrapper .sign-slider .sign-1, .point-4:checked ~ .sign-wrapper .sign-slider .sign-2, .point-4:checked ~ .sign-wrapper .sign-slider .sign-3{
+    opacity: 0;
+    transition: 1s;
+}
+
+@media screen and (max-width: 768px) {
     .wrapper {
-        max-width: 767px;
-        padding: 20px;
-    
-        gap: 1em;
+        max-width: 768px;
     }
-    
-    .meme {
-        border-radius: 15px;
-    }
-    
-    .sign-and-nav {
-        flex-direction: column;
-    }
-    
-    .sign {
+
+    .sign-wrapper {
+        order: 2;
         width: 100%;
-        font-size: 1.5em;
     }
-    
-    .nav {
-        order: -1;
-        align-self: center;
-        padding-left: 0;
+
+    .point-1 {
+        margin-left: calc((100% - 16rem) / 2);
     }
-    
-    .nav-item {
-        padding: 0.8em;
-    }
-    
-    .point {
-        height: 1.6em;
-        width: 1.6em;
-        padding: 0.8em; 
+
+    .style-point-4 {
+        margin-right: calc((100% - 16rem) / 2);
     }
 }
-
